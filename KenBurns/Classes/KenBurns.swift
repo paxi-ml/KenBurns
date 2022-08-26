@@ -324,7 +324,9 @@ func ==(lhs: KenBurnsAnimation, rhs: KenBurnsAnimation) -> Bool {
                 nextImageView.kf.indicatorType = .activity
             }
         } else {
-            nextImageView.image = imageQueue!.read()
+            if var imageQueue = imageQueue {
+                nextImageView.image = imageQueue.read()
+            }
         }
 
     }
